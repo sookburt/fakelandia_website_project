@@ -1,11 +1,13 @@
 :root {
 	--light: #fdf8e5;
-  --dark: hsl(0, 55%, 13%);
+  --dark: #330f0f;
   --link: #CCCCCC;
   --highlight: #08084f;
+  --active: #FF0000;
 }
 body {
   background-color: var(--light);
+  color: var(--dark);
   display: flex;
   flex-direction: column;
   margin: 20px 50px;
@@ -18,7 +20,7 @@ h1 {
 .navbar {
   margin: 20px;
   border: var(--dark) solid 1px;
-  border-radius: 25px;
+
 }
 
 .navbar--list {
@@ -33,7 +35,11 @@ h1 {
   background-color: var(--highlight);
   margin: auto;
   padding: 10px 20px;
-  border-radius: 15px;
+}
+
+.active {
+  border-bottom: solid var(--active) 1px;
+  color: var(--active);
 }
 
 a {
@@ -45,8 +51,8 @@ a {
   text-align: center;
   margin: 20px;
   padding: 20px;
-  border: var(--dark) solid 1px;
-  border-radius: 25px;
+  /* border: var(--dark) solid 1px;
+  border-radius: 25px; */
 }
 
 .main--content p {
@@ -56,11 +62,11 @@ a {
 
 footer {
   text-align: center;
-  border: var(--dark) solid 1px;
   margin: 20px;
   padding: 20px;
   color: var(--dark);
-  border-radius: 25px;
+  /* border: var(--dark) solid 1px;
+  border-radius: 25px; */
 }
 
 
