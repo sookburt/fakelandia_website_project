@@ -1,10 +1,15 @@
 :root {
 	--light: #fdf8e5;
-  --bg: bisque;
+  --text: #FFFFFF;
+  --link: #CCCCCC;
+  --highlight: #0000DD;
 }
 body {
-  background-color: var(--bg);
+  background-color: var(--light);
+}
 
+h1 {
+  color: var(--highlight);
 }
 
 .navbar--list {
@@ -17,13 +22,19 @@ body {
 
 .navbar--list--item {
   list-style: none;
-  background-color: brown;
+  background-color: var(--highlight);
   margin: auto;
   padding: 10px 20px;
   border-radius: 5%;
 }
 
+a {
+  color: var(--link);
+}
+
 .main--content {
+  display: flex;
   justify-content: center;
+  margin: 20px;
 }
 
