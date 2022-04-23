@@ -6,11 +6,11 @@ export const MISDEMEANOURS = [
 	'united',
 ] as const;
 
-export type Misdemeanour = typeof MISDEMEANOURS[number];
+export type Misdemeanours = typeof MISDEMEANOURS[number];
 
 export interface MisdemeanourRecord {
 	citizenId: number;
-	misdemeanour: Misdemeanour;
+	misdemeanour: Misdemeanours;
 	date: string;
 	misdemeanourDescription?: string
 }

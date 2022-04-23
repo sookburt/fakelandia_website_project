@@ -1,31 +1,18 @@
 import { useEffect, useState } from "react";
 import generateMisdemeanours from "../data/generate_misdemenours";
-import { MisdemeanourRecord } from "../data/MisdemeanourRecord";
+import { Misdemeanours, MisdemeanourRecord } from "../data/MisdemeanourRecord";
 import MisdemeanourRow from "./MisdemeanourRow";
+import Select from "./Select";
 
 
 
 const Misdemeanour: React.FC = () => {
 
-  const [filter, setFilter] = useState(10);
-  const updateFilter = (value: string) => {
-    const num = parseInt(value);
-    if(num !== filter){
-      setFilter(num);
-    }
-  };
+  
   const [misdemeanours, setMisdemeanours] = useState<MisdemeanourRecord[]>([]);
-
-
-  useEffect(() =>  {
-    const callApi = async () => {
-      const records = await generateMisdemeanours(filter);
-      records.map(record =>  record.misdemeanourDescription = getMisdemeanourText(record.misdemeanour));
-      setMisdemeanours(records);
-    }
-    callApi(); // TODO: unsure why but this gets called twice each time a change is made
-  }, [filter]);
-
+  const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanours);
+  const [option, setOption] = useState<Misdemeanours | 'all'>('all');
+  
   const getMisdemeanourText = (misdemeanour:string) => {
     
     switch (misdemeanour){
@@ -36,20 +23,33 @@ const Misdemeanour: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if(option !== 'all'){
+      const filteredRecords = misdemeanours.filter((rec) => rec.misdemeanour === option);
+      setFiltered([...filteredRecords]);
+    }
+    else{
+      setFiltered([...misdemeanours]);
+    }
+  }, [misdemeanours, option]);
+    
+  useEffect(() =>  {
+    const callApi = async () => {
+      const records = await generateMisdemeanours(10);
+      records.map(record =>  record.misdemeanourDescription = getMisdemeanourText(record.misdemeanour));      
+      setMisdemeanours([...records]);
+    }
+    callApi();
+  }, []);
+
+
   return (
     <>
       <h1>Misdemeanours</h1>
-      {console.log(misdemeanours)}
       { /* TODO: create components to display misdemeanours and pass via useContext */ }
-      <label className="label--hidden" htmlFor='myFilter'>Filter</label>
-      <select 
-        id='myFilter' 
-        onChange={(e) => {e.preventDefault();updateFilter(e.target.value)}}>
-        <option value='10'>Get Ten</option>
-        <option value='1'>Get One</option>
-      </select>
+      <Select option={option} update={setOption} />
       <table className="misdemeanour-table">
-        <caption>{filter} misdemeanours of our citizens with punishment ideas.</caption>
+        <caption>Misdemeanours of our citizens with punishment ideas.</caption>
         <thead>
           <tr>
             <th>Citizen Id</th>
@@ -59,7 +59,9 @@ const Misdemeanour: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {misdemeanours.map((record) => <MisdemeanourRow  {...record}/>)}
+          {
+            filtered.map((record) => <MisdemeanourRow  {...record}/>)
+          }
         </tbody>
       </table>
     </>

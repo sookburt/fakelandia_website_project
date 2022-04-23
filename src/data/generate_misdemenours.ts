@@ -1,4 +1,4 @@
-import { Misdemeanour, MisdemeanourRecord, MISDEMEANOURS } from "./MisdemeanourRecord";
+import { Misdemeanours, MisdemeanourRecord, MISDEMEANOURS } from "./MisdemeanourRecord";
 
 export default async function generateMisdemeanours(
 	number: number
@@ -13,7 +13,7 @@ export default async function generateMisdemeanours(
 	for (let i = 0; i < amount; i++) {
 		misdemeanours.push({
 			citizenId: Math.floor(i + rand(37) * rand(967)),
-			misdemeanour: choose<Misdemeanour>([...MISDEMEANOURS]),
+			misdemeanour: choose<Misdemeanours>([...MISDEMEANOURS]),
 			date: new Date().toLocaleDateString(),
 		});
 	}

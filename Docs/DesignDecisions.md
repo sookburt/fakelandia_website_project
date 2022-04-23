@@ -11,3 +11,6 @@ It became clear that the initial 'database' returning misdemeanours includes a t
 On the assumption that the fake API data cannot be changed (under normal circumstances this would not be possible), I can't change it at source.
 The main option open to me is to extend the MisdemeanourRecord to include the longer string as another optional field in the object and update the type of useState in Misdemeanour.tsx to be this. I can then add that string as a field to the MisdemeanourRecord at the same time I get the data from the API.
 
+## Filtering misdemeanours:
+I had misunderstood the initial filtering request to mean the number of misdemeanours rather than filtering by type of misdemeanour so having to backfill here.
+Converting a string to a misdemeanour seems tricky - I'm in a circular rut of it must be of the type but it's a string... which is of the type but it has no way of knowing that.
