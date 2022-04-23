@@ -7,7 +7,7 @@ return (
     <tr>
       <td>{props.citizenId}</td>
       <td>{props.date}</td>
-      <td>{props.misdemeanour}</td>
+      <td>{props.misdemeanourDescription}</td>
       <td></td>    
     </tr>
   </>

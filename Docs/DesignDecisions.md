@@ -1,0 +1,13 @@
+# Design Decisions:
+
+I started this part way through but thought it necessary because of a couple of particularly tricky issues.
+
+## generateMisdemeanours 'API'
+On bringing in the generateMisdemeanours 'API', I noticed that it was set up to return an array of Misdemeanour types but it actually returned an array of objects that included the Misdemeanour type within it.  I therefore created an interface that included all the fields returned and set that as the return type.
+
+## Misdemeanour Text Question:
+It became clear that the initial 'database' returning misdemeanours includes a type based on  an array of single words and the state in Misdemeanour holds MisdemeanourRecords which are contrained by that type.  The UI, however, is required to hold a more comprehensive string with an emoji.  If I alter the MisdemeanourRow component to use a switch to display this longer string, it doesn't display the new string and the state will know nothing about it anyway. 
+
+On the assumption that the fake API data cannot be changed (under normal circumstances this would not be possible), I can't change it at source.
+The main option open to me is to extend the MisdemeanourRecord to include the longer string as another optional field in the object and update the type of useState in Misdemeanour.tsx to be this. I can then add that string as a field to the MisdemeanourRecord at the same time I get the data from the API.
+

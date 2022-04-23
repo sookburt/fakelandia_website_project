@@ -12,4 +12,5 @@ export interface MisdemeanourRecord {
 	citizenId: number;
 	misdemeanour: Misdemeanour;
 	date: string;
+	misdemeanourDescription?: string
 }

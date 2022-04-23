@@ -19,10 +19,22 @@ const Misdemeanour: React.FC = () => {
 
   useEffect(() =>  {
     const callApi = async () => {
-      setMisdemeanours(await generateMisdemeanours(filter));
+      const records = await generateMisdemeanours(filter);
+      records.map(record =>  record.misdemeanourDescription = getMisdemeanourText(record.misdemeanour));
+      setMisdemeanours(records);
     }
     callApi(); // TODO: unsure why but this gets called twice each time a change is made
-  }, [filter])
+  }, [filter]);
+
+  const getMisdemeanourText = (misdemeanour:string) => {
+    
+    switch (misdemeanour){
+      case 'rudeness':  return 'Mild Public Rudeness 🤪';
+      case 'vegetables': return 'Not Eating Your Vegetables 🥗';
+      case 'lift': return 'Speaking in a Lift 🗣';
+      default: return 'Supporting Manchester United 😈';
+    }
+  };
 
   return (
     <>
