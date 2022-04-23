@@ -65,6 +65,11 @@ a {
   margin: 20px;
 }
 
+.misdemeanour-table {
+  margin: auto;
+  width: 80%;
+}
+
 footer {
   text-align: center;
   margin: 20px;
