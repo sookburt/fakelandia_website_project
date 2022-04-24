@@ -15,3 +15,8 @@ The main option open to me is to extend the MisdemeanourRecord to include the lo
 I had misunderstood the initial filtering request to mean the number of misdemeanours rather than filtering by type of misdemeanour so having to backfill here.
 After a long struggle, I eventually realised that I needed to create a component for the Select in order to control the change.  Then I needed to filter the misdemeanour records by the option when it changed in the select component via another useEffect hook, then make sure I could unfilter it too.  The filtering useEffect hook needed to change both when the option changed and when the initial set of misdemeanours were loaded.
 
+## Styling:
+I found a colour scheme the client likes... 😜 I'll do owing to time limitations.
+
+## Testing:
+Well... what can I say, the assignment for this project is significantly before the assignment on testing... so... um... yeah.

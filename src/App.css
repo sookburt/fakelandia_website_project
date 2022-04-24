@@ -105,3 +105,38 @@ footer {
   padding: 5px 2px;
   margin: 15px 2px;
 }
+
+.confession-intro--paragraph {
+  padding: 10px;
+  margin: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+}
+
+.form--row {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-end;
+  text-align: right;
+  padding: 5px;
+  width: 50%;
+  margin: auto;
+}
+
+.form--rowitem {
+  width:50%;
+  align-self: flex-end;
+}
+
+.form--rowlabel {
+  font-weight: 500;
+  padding-right: 8px;
+}
+
+.form--button {
+  padding: 3px 5px;
+}
