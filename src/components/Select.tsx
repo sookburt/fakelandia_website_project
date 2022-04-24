@@ -21,9 +21,9 @@ const Select: React.FC<Props> = (props) => {
 
   return (
     <>
-    <label className="label--hidden" htmlFor='myFilter'>Filter</label>
+    <label className="filter--label" htmlFor='myFilter'>Filter Misdemeanours:</label>
       <select 
-        id='myFilter' name='myFilter'
+        id='myFilter' name='myFilter' className='filter--select'
         onChange={(e) => updateFilter(e.target.value)}
         >
         <option value='all'>All</option>

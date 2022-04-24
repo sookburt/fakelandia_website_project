@@ -84,3 +84,13 @@ footer {
   margin: 5px;
 }
 
+.filter--label {
+  padding: 15px 2px;
+  margin: 15px 2px;
+  font-weight: 500;
+}
+
+.filter--select {
+  padding: 5px 2px;
+  margin: 15px 2px;
+}

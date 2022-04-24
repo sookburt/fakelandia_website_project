@@ -1,13 +1,14 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import generateMisdemeanours from "../data/generate_misdemenours";
 import { Misdemeanours, MisdemeanourRecord } from "../data/MisdemeanourRecord";
-import MisdemeanourRow from "./MisdemeanourRow";
+import MisdemeanourContext from "../hooks/MisdemeanourContext";
+import MisdmeanourTable from "./MisdemeanourTable";
 import Select from "./Select";
 
 
 
 const Misdemeanour: React.FC = () => {
-
   
   const [misdemeanours, setMisdemeanours] = useState<MisdemeanourRecord[]>([]);
   const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanours);
@@ -19,7 +20,7 @@ const Misdemeanour: React.FC = () => {
       case 'rudeness':  return 'Mild Public Rudeness 🤪';
       case 'vegetables': return 'Not Eating Your Vegetables 🥗';
       case 'lift': return 'Speaking in a Lift 🗣';
-      default: return 'Supporting Manchester United 😈';
+      default: return 'Supporting Millwall 😈';
     }
   };
 
@@ -47,22 +48,9 @@ const Misdemeanour: React.FC = () => {
     <>
       <h1>Misdemeanours</h1>
       <Select option={option} update={setOption} />
-      <table className="misdemeanour-table">
-        <caption>Misdemeanours of our citizens with punishment ideas.</caption>
-        <thead>
-          <tr>
-            <th>Citizen Id</th>
-            <th>Date</th>
-            <th>Misdemeanour</th>
-            <th>Punishment Idea</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            filtered.map((record) => <MisdemeanourRow  {...record}/>)
-          }
-        </tbody>
-      </table>
+      <MisdemeanourContext.Provider value={filtered}>
+        <MisdmeanourTable />
+      </MisdemeanourContext.Provider>
     </>
   );
 }
