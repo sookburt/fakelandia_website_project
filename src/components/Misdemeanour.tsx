@@ -46,7 +46,6 @@ const Misdemeanour: React.FC = () => {
   return (
     <>
       <h1>Misdemeanours</h1>
-      { /* TODO: create components to display misdemeanours and pass via useContext */ }
       <Select option={option} update={setOption} />
       <table className="misdemeanour-table">
         <caption>Misdemeanours of our citizens with punishment ideas.</caption>

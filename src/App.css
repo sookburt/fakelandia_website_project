@@ -77,5 +77,10 @@ footer {
   color: var(--dark);
 }
 
-
+.table-row--image {
+  width: 100px;
+  height: 60px;
+  border: solid 2px var(--dark);
+  margin: 5px;
+}
 
