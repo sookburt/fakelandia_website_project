@@ -10,7 +10,7 @@ const MisdmeanourTable: React.FC = () => {
   return (
 
     <table className="misdemeanour-table">
-    <caption>Misdemeanours of our citizens with punishment ideas.</caption>
+    <caption className='misdemeanour-table--caption'>Misdemeanours of our citizens with punishment ideas.</caption>
     <thead>
       <tr>
         <th>Citizen Id</th>
