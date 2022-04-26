@@ -16,7 +16,7 @@ I had misunderstood the initial filtering request to mean the number of misdemea
 After a long struggle, I eventually realised that I needed to create a component for the Select in order to control the change.  Then I needed to filter the misdemeanour records by the option when it changed in the select component via another useEffect hook, then make sure I could unfilter it too.  The filtering useEffect hook needed to change both when the option changed and when the initial set of misdemeanours were loaded.
 
 ## Styling:
-I found a colour scheme the client likes... 😜 I'll do owing to time limitations.
+I found a colour scheme the client likes... 😜 It'll do owing to time limitations.  Will return to look and feel when I have more time.
 
 ## Testing:
 Well... what can I say, the assignment for this project is due well before the ones that are intended to fix our understanding of testing React... so... um... yeah.  It might have been better the other way around so the harder assignments were due after the easier (fix that knowledge) type.
@@ -24,3 +24,5 @@ Well... what can I say, the assignment for this project is due well before the o
 ## Refactor misdemeanours to the home app level:
 Since the form is required to save the new confession to the list in state, I need to move the list up to the top level so that it can be passed to both the confessions and misdemeanours pages.
 
+## Error Boundary
+Decided to install https://github.com/bvaughn/react-error-boundary to handle errors.

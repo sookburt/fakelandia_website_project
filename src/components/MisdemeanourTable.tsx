@@ -21,7 +21,7 @@ const MisdmeanourTable: React.FC = () => {
     </thead>
     <tbody>
       {
-        filtered.map((record) => <MisdemeanourRow  {...record}/>)
+        filtered.map((record) => <MisdemeanourRow  {...record}/>) // filtered.map is not a function
       }
     </tbody>
   </table>

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { MISDEMEANOURS, Misdemeanours } from "../data/MisdemeanourRecord";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
+import FormButton from "./FormButton";
 import FormSelectInput from "./FormSelectInput";
 import FormTextInput from "./FormTextInput";
 
@@ -12,13 +13,12 @@ const Form: React.FC = () => {
   const [option, setOption] = useState<Misdemeanours | ''>('');
   const [rant, setRant] = useState<string>('');
 
-  const buildMisdemeanourRecord = (event:React.SyntheticEvent) => {
-    event.preventDefault();
-    return ({
+  const buildMisdemeanourRecord = () => {
+    misdemeanourSetter(...misdemeanourList, {
 			citizenId: Math.floor((Math.random() * 37) * (Math.random() * 967)),
 			misdemeanour: option,
 			date: new Date().toLocaleDateString(),
-		});
+		},);
   }
 
   return (
@@ -37,9 +37,7 @@ const Form: React.FC = () => {
           <textarea id='details' className='form--rowitem' />
         </div>
         <div className="form--row">
-          <button className='form--button' 
-            onClick={(e) => buildMisdemeanourRecord}
-          >Confess</button>
+          <FormButton buttonLabel={'Confess'} saveForm={buildMisdemeanourRecord} />
         </div>
       </form>
     </>
