@@ -19,4 +19,8 @@ After a long struggle, I eventually realised that I needed to create a component
 I found a colour scheme the client likes... 😜 I'll do owing to time limitations.
 
 ## Testing:
-Well... what can I say, the assignment for this project is significantly before the assignment on testing... so... um... yeah.
+Well... what can I say, the assignment for this project is due well before the ones that are intended to fix our understanding of testing React... so... um... yeah.  It might have been better the other way around so the harder assignments were due after the easier (fix that knowledge) type.
+
+## Refactor misdemeanours to the home app level:
+Since the form is required to save the new confession to the list in state, I need to move the list up to the top level so that it can be passed to both the confessions and misdemeanours pages.
+

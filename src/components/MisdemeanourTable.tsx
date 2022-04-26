@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { MisdemeanourRecord } from "../data/MisdemeanourRecord";
-import MisdemeanourContext from "../hooks/MisdemeanourContext";
+import FilteredMisdemeanourContext from "../hooks/FilteredMisdemeanourContext";
 import MisdemeanourRow from "./MisdemeanourRow";
 
 const MisdmeanourTable: React.FC = () => {
 
-  const filtered: MisdemeanourRecord[] = useContext(MisdemeanourContext);
+  const filtered: MisdemeanourRecord[] = useContext(FilteredMisdemeanourContext);
 
   return (
 

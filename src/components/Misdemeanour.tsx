@@ -1,56 +1,35 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import generateMisdemeanours from "../data/generate_misdemenours";
+import React, { useContext, useEffect, useState } from "react";
 import { Misdemeanours, MisdemeanourRecord } from "../data/MisdemeanourRecord";
-import MisdemeanourContext from "../hooks/MisdemeanourContext";
+import FilteredMisdemeanourContext from "../hooks/FilteredMisdemeanourContext";
+import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 import MisdmeanourTable from "./MisdemeanourTable";
 import Select from "./Select";
-
+ 
 
 
 const Misdemeanour: React.FC = () => {
   
-  const [misdemeanours, setMisdemeanours] = useState<MisdemeanourRecord[]>([]);
-  const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanours);
+  const {misdemeanourList, misdemeanourSetter} = useContext<IMisdemeanourContext>(MisdemeanourContext);
+  const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanourList);
   const [option, setOption] = useState<Misdemeanours | 'all'>('all');
-  
-  const getMisdemeanourText = (misdemeanour:string) => {
-    
-    switch (misdemeanour){
-      case 'rudeness':  return 'Mild Public Rudeness 🤪';
-      case 'vegetables': return 'Not Eating Your Vegetables 🥗';
-      case 'lift': return 'Speaking in a Lift 🗣';
-      default: return 'Supporting Millwall 😈';
-    }
-  };
 
   useEffect(() => {
     if(option !== 'all'){
-      const filteredRecords = misdemeanours.filter((rec) => rec.misdemeanour === option);
+      const filteredRecords = misdemeanourList.filter((rec) => rec.misdemeanour === option);
       setFiltered([...filteredRecords]);
     }
     else{
-      setFiltered([...misdemeanours]);
+      setFiltered([...misdemeanourList]);
     }
-  }, [misdemeanours, option]);
-    
-  useEffect(() =>  {
-    const callApi = async () => {
-      const records = await generateMisdemeanours(10);
-      records.map(record =>  record.misdemeanourDescription = getMisdemeanourText(record.misdemeanour));      
-      setMisdemeanours([...records]);
-    }
-    callApi();
-  }, []);
-
+  }, [misdemeanourList, option]);
 
   return (
     <>
       <h1>Misdemeanours</h1>
       <Select option={option} update={setOption} />
-      <MisdemeanourContext.Provider value={filtered}>
+      <FilteredMisdemeanourContext.Provider value={filtered}>
         <MisdmeanourTable />
-      </MisdemeanourContext.Provider>
+      </FilteredMisdemeanourContext.Provider>
     </>
   );
 }
