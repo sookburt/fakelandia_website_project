@@ -9,10 +9,10 @@ const Misdemeanour: React.FC = () => {
   
   const {misdemeanourList} = useContext<IMisdemeanourContext>(MisdemeanourContext);
   const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanourList);
-  const [option, setOption] = useState<Misdemeanours | 'all'>('all');
+  const [option, setOption] = useState<Misdemeanours | ''>('');
 
   useEffect(() => {
-    if(option !== 'all'){
+    if(option !== ''){
       const filteredRecords = misdemeanourList.filter((rec) => rec.misdemeanour === option);
       setFiltered([...filteredRecords]);
     }
@@ -24,6 +24,7 @@ const Misdemeanour: React.FC = () => {
   return (
     <>
       <h1>Misdemeanours</h1>
+      <label className="filter--label" htmlFor='misdemeanourSelect'>Select Misdemeanour:</label>
       <Select option={option} update={setOption} />
       <FilteredMisdemeanourContext.Provider value={filtered}>
         <MisdmeanourTable />

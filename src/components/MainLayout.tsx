@@ -8,7 +8,6 @@ import Header from "./Header";
 
 const MainLayout: React.FC = () => {
 
-
   const [misdemeanours, setMisdemeanours] = useState<MisdemeanourRecord[]>([]);
 
   const getMisdemeanourText = (misdemeanour:string) => {

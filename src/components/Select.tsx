@@ -2,12 +2,12 @@ import { Misdemeanours, MISDEMEANOURS } from "../data/MisdemeanourRecord";
 
 interface Props {
   option:string;
-  update: React.Dispatch<React.SetStateAction<Misdemeanours | 'all'>>;
+  update: React.Dispatch<React.SetStateAction<Misdemeanours | ''>>;
 }
 
 const Select: React.FC<Props> = (props) => {
 
-  const updateFilter = (value: string):void =>  {
+  const update = (value: string):void =>  {
     const index = parseInt(value);
     if(!Number.isNaN(index)) 
     {
@@ -15,18 +15,17 @@ const Select: React.FC<Props> = (props) => {
       props.update(state);
     }
     else {
-      props.update('all');
+      props.update('');
     }
   };
 
   return (
     <>
-    <label className="filter--label" htmlFor='myFilter'>Filter Misdemeanours:</label>
       <select 
-        id='myFilter' name='myFilter' className='filter--select'
-        onChange={(e) => updateFilter(e.target.value)}
+        id='misdemeanourSelect' name='misdemeanourSelect' className='form--select'
+        onChange={(e) => update(e.target.value)}
         >
-        <option value='all'>All</option>
+        <option value=''>Select...</option>
         <option value='0'>Rudeness</option>
         <option value='1'>Vegetables</option>
         <option value='2'>Lift</option>

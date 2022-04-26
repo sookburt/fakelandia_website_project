@@ -2,7 +2,6 @@ import Form from "./Form";
 
 const Confession: React.FC = () => {
 
-  
   return(
   <>
     <h1>Confession:</h1>
