@@ -1,6 +1,7 @@
 import Form from "./Form";
 
 const Confession: React.FC = () => {
+
   
   return(
   <>

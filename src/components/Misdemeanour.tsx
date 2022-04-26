@@ -5,11 +5,9 @@ import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/Misdemeanour
 import MisdmeanourTable from "./MisdemeanourTable";
 import Select from "./Select";
  
-
-
 const Misdemeanour: React.FC = () => {
   
-  const {misdemeanourList, misdemeanourSetter} = useContext<IMisdemeanourContext>(MisdemeanourContext);
+  const {misdemeanourList} = useContext<IMisdemeanourContext>(MisdemeanourContext);
   const [filtered, setFiltered] = useState<MisdemeanourRecord[]>(misdemeanourList);
   const [option, setOption] = useState<Misdemeanours | 'all'>('all');
 

@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 
 const Form: React.FC = () => {
+
+  const {misdemeanourList, misdemeanourSetter} = useContext<IMisdemeanourContext>(MisdemeanourContext);
 
   return (
     <>
