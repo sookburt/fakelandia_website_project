@@ -3,7 +3,7 @@ import { Misdemeanours, MisdemeanourRecord } from "../data/MisdemeanourRecord";
 import FilteredMisdemeanourContext from "../hooks/FilteredMisdemeanourContext";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 import MisdmeanourTable from "./MisdemeanourTable";
-import Select from "./Select";
+import FormSelectInput from "./FormSelectInput";
  
 const Misdemeanour: React.FC = () => {
   
@@ -25,7 +25,7 @@ const Misdemeanour: React.FC = () => {
     <>
       <h1>Misdemeanours</h1>
       <label className="filter--label" htmlFor='misdemeanourSelect'>Select Misdemeanour:</label>
-      <Select option={option} update={setOption} />
+      <FormSelectInput option={option} update={setOption} />
       <FilteredMisdemeanourContext.Provider value={filtered}>
         <MisdmeanourTable />
       </FilteredMisdemeanourContext.Provider>

@@ -5,7 +5,7 @@ interface Props {
   update: React.Dispatch<React.SetStateAction<Misdemeanours | ''>>;
 }
 
-const Select: React.FC<Props> = (props) => {
+const FormSelectInput: React.FC<Props> = (props) => {
 
   const update = (value: string):void =>  {
     const index = parseInt(value);
@@ -35,4 +35,4 @@ const Select: React.FC<Props> = (props) => {
   );
 }
 
-export default Select;
+export default FormSelectInput;
