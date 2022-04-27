@@ -22,6 +22,8 @@ const Form: React.FC = () => {
 			misdemeanour: option,
 			date: new Date().toLocaleDateString(),
       misdemeanourDescription: getMisdemeanourText(option),
+      misdemeanourSubject: subject,
+      misdemeanourDetail: details
 		});
     
     misdemeanourSetter([...misdemeanourList, newRecord]);
