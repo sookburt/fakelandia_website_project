@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
-import { Misdemeanours } from "../data/MisdemeanourRecord";
+import { useContext, useEffect, useState } from "react";
+import { MisdemeanourRecord, Misdemeanours } from "../data/MisdemeanourRecord";
 import getCitizenId from "../helpers/CitizenId";
 import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 import FormButton from "./FormButton";
+import FormOutcome from "./FormOutcome";
 import FormSelectInput from "./FormSelectInput";
 import FormTextArea from "./FormTextArea";
 import FormTextInput from "./FormTextInput";
@@ -15,23 +16,30 @@ const Form: React.FC = () => {
   const [subject, setSubject] = useState<string>('');
   const [option, setOption] = useState<Misdemeanours | ''>('');
   const [details, setDetails] = useState<string>('');
+  const [record, setRecord] = useState<MisdemeanourRecord>();
 
   const buildMisdemeanourRecord = () => {
     
     const newRecord = ({
       citizenId: getCitizenId(),
-			misdemeanour: option,
+			misdemeanour: option === '' ? 'united' : option,
 			date: new Date().toLocaleDateString(),
       misdemeanourDescription: getMisdemeanourText(option),
       misdemeanourSubject: subject,
       misdemeanourDetail: details
 		});
-    
-    misdemeanourSetter([...misdemeanourList, newRecord]);
+
+    setRecord(newRecord);
   }
+
+  useEffect(() => { 
+    misdemeanourList && record && misdemeanourSetter([...misdemeanourList, record]) 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [record]);
 
   return (
     <>
+    {record && (<FormOutcome {...record} />)}
       <form className="form">
         <div className="form--row">
           <label htmlFor='formTextInput' className='form--rowlabel'>Subject: </label>
