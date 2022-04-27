@@ -11,14 +11,19 @@ const Form: React.FC = () => {
 
   const [subject, setSubject] = useState<string>('');
   const [option, setOption] = useState<Misdemeanours | ''>('');
-  const [rant, setRant] = useState<string>('');
+  const [details, setDetails] = useState<string>('');
 
   const buildMisdemeanourRecord = () => {
-    misdemeanourSetter(...misdemeanourList, {
-			citizenId: Math.floor((Math.random() * 37) * (Math.random() * 967)),
+    
+    const newRecord = ({
+      // citizenId: Math.floor((Math.random() * 37) * (Math.random() * 967)),
+      citizenId: 55555555555,
 			misdemeanour: option,
 			date: new Date().toLocaleDateString(),
-		},);
+      misdemeanourDescription: '' 
+		});
+    
+    misdemeanourSetter([...misdemeanourList, newRecord]);
   }
 
   return (

@@ -3,17 +3,17 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Router from './components/Router';
-
- /* https://github.com/bvaughn/react-error-boundary */
+import ErrorFallback from './ErrorHandling/ErrorFallback';
 
 function App() {
   return (
     <div className="App">
-      {/* <ErrorBoundary >  */}
+      <ErrorBoundary 
+        FallbackComponent={ErrorFallback}> 
         <BrowserRouter>
           <Router/>
         </BrowserRouter>
-      {/* </ErrorBoundary> */}
+      </ErrorBoundary>
     </div>
   );
 }
