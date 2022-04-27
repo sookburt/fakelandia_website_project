@@ -31,5 +31,15 @@ Decided to install https://github.com/bvaughn/react-error-boundary to handle err
 I have noticed that there are some methods that need to be reused to create new misdemeanour records in the form so have extracted those out into their own modules for reuse.
 
 ## The requirement to add subject and extra details in the confession form 
-It is unclear what to do with the extra two field contents and, if I had a client, I would ask them if they want the new fields added to the MisdemeanourRecord, leaving the fields for the existing records blank.  There doesn't seem to be a requirement to display that detail in the Misdemeanours page either.  In the short term, I will add these fields to the MisdemeanourRecord as optional fields but not display them.
+It is unclear what to do with the extra two field contents and, if I had a client, I would ask them if they want the new fields added to the MisdemeanourRecord, leaving the fields for the existing records blank.  There doesn't seem to be a requirement to display that detail in the Misdemeanours page either.  In the short term, I will add these fields to the MisdemeanourRecord as optional fields but not display them. Later we're asked to output them to the console so doing that.
+
+## Adding the option to just talk
+That wasn't fun but I assume the requirement was added to deliberately break the code to push the learning that bit further.  I'm not completely happy with it as it feels rather hacky.  There's probably a better way but I have limited time.  If I can think of a better way between now and tomorrow morning, I will attempt to refactor it.
+
+## Next
+[] Add validation to the form
+[] Disable the submit button until the misdemeanour is selected.
+[] Reset the form after submission 
+[] Validate the HTML for accessbility
+[] Revisit the CSS to make it look and work better for mobile and... well anything...
 
