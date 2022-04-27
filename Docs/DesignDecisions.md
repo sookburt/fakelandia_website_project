@@ -22,7 +22,14 @@ I found a colour scheme the client likes... 😜 It'll do owing to time limitati
 Well... what can I say, the assignment for this project is due well before the ones that are intended to fix our understanding of testing React... so... um... yeah.  It might have been better the other way around so the harder assignments were due after the easier (fix that knowledge) type.
 
 ## Refactor misdemeanours to the home app level:
-Since the form is required to save the new confession to the list in state, I need to move the list up to the top level so that it can be passed to both the confessions and misdemeanours pages.
+Since the form is required to save the new confession to the list in state, I need to move the list up to the level where they it can be passed to both the confessions and misdemeanours pages.  App seems too high but MainLayout is the lowest level I can achieve it even though it seems an odd place to put the code.
 
 ## Error Boundary
-Decided to install https://github.com/bvaughn/react-error-boundary to handle errors.
+Decided to install https://github.com/bvaughn/react-error-boundary to handle errors as nothing doing that at the moment.
+
+## Helper methods
+I have noticed that there are some methods that need to be reused to create new misdemeanour records in the form so have extracted those out into their own modules for reuse.
+
+## The requirement to add subject and extra details in the confession form 
+It is unclear what to do with the extra two field contents and, if I had a client, I would ask them if they want the new fields added to the MisdemeanourRecord, leaving the fields for the existing records blank.  There doesn't seem to be a requirement to display that detail in the Misdemeanours page either.  In the short term, I will add these fields to the MisdemeanourRecord as optional fields but not display them.
+
