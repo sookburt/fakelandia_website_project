@@ -22,7 +22,7 @@ const Form: React.FC = () => {
     
     const newRecord = ({
       citizenId: getCitizenId(),
-			misdemeanour: option === '' ? 'united' : option,
+			misdemeanour: option === '' ? 'wanna talk' : option,
 			date: new Date().toLocaleDateString(),
       misdemeanourDescription: getMisdemeanourText(option),
       misdemeanourSubject: subject,

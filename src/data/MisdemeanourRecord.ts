@@ -1,9 +1,10 @@
 
 export const MISDEMEANOURS = [
+	'wanna talk',
 	'rudeness',
 	'vegetables',
 	'lift',
-	'united',
+	'millwall',
 ] as const;
 
 export type Misdemeanours = typeof MISDEMEANOURS[number];

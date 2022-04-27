@@ -1,4 +1,5 @@
 import { Misdemeanours, MISDEMEANOURS } from "../data/MisdemeanourRecord";
+import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 
 interface Props {
   option:string;
@@ -25,11 +26,8 @@ const FormSelectInput: React.FC<Props> = (props) => {
         id='misdemeanourSelect' name='misdemeanourSelect' className='form--select'
         onChange={(e) => update(e.target.value)}
         >
-        <option value=''>Select...</option>
-        <option value='0'>Rudeness</option>
-        <option value='1'>Vegetables</option>
-        <option value='2'>Lift</option>
-        <option value='3'>United</option>
+          <option value=''>Select...</option>
+          {MISDEMEANOURS.map((item, index) => <option value={index}>{getMisdemeanourText(item)}</option>)}
       </select>
       </>
   );
