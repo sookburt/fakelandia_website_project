@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
-import { MISDEMEANOURS, Misdemeanours } from "../data/MisdemeanourRecord";
+import { Misdemeanours } from "../data/MisdemeanourRecord";
 import getCitizenId from "../helpers/CitizenId";
 import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 import FormButton from "./FormButton";
 import FormSelectInput from "./FormSelectInput";
+import FormTextArea from "./FormTextArea";
 import FormTextInput from "./FormTextInput";
 
 const Form: React.FC = () => {
@@ -42,7 +43,7 @@ const Form: React.FC = () => {
         </div>
         <div className="form--row">
           <label htmlFor="details"  className='form--rowlabel'>Details: </label>
-          <textarea id='details' className='form--rowitem' />
+          <FormTextArea text={details} update={setDetails} />
         </div>
         <div className="form--row">
           <FormButton buttonLabel={'Confess'} saveForm={buildMisdemeanourRecord} />
