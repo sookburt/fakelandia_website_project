@@ -11,8 +11,6 @@ const MainLayout: React.FC = () => {
 
   const [misdemeanours, setMisdemeanours] = useState<MisdemeanourRecord[]>([]);
 
-
-
   useEffect(() =>  {
     const callApi = async () => {
       const records = await generateMisdemeanours(10);

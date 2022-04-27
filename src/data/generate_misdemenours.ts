@@ -1,5 +1,8 @@
+import getCitizenId from "../helpers/CitizenId";
 import { Misdemeanours, MisdemeanourRecord, MISDEMEANOURS } from "./MisdemeanourRecord";
-
+/**
+ * Borrowed and adapted from TechReturners.
+*/
 export default async function generateMisdemeanours(
 	number: number
 ): Promise<Array<MisdemeanourRecord>> {
@@ -12,17 +15,13 @@ export default async function generateMisdemeanours(
 
 	for (let i = 0; i < amount; i++) {
 		misdemeanours.push({
-			citizenId: Math.floor(i + rand(37) * rand(967)),
+			citizenId: getCitizenId(),
 			misdemeanour: choose<Misdemeanours>([...MISDEMEANOURS]),
 			date: new Date().toLocaleDateString(),
 		});
 	}
 
 	return misdemeanours;
-}
-
-function rand(x: number): number {
-	return Math.random() * x;
 }
 
 /// take just one T from an array of T

@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { MISDEMEANOURS, Misdemeanours } from "../data/MisdemeanourRecord";
+import getCitizenId from "../helpers/CitizenId";
+import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
 import FormButton from "./FormButton";
 import FormSelectInput from "./FormSelectInput";
@@ -16,11 +18,10 @@ const Form: React.FC = () => {
   const buildMisdemeanourRecord = () => {
     
     const newRecord = ({
-      // citizenId: Math.floor((Math.random() * 37) * (Math.random() * 967)),
-      citizenId: 55555555555,
+      citizenId: getCitizenId(),
 			misdemeanour: option,
 			date: new Date().toLocaleDateString(),
-      misdemeanourDescription: '' 
+      misdemeanourDescription: getMisdemeanourText(option),
 		});
     
     misdemeanourSetter([...misdemeanourList, newRecord]);
