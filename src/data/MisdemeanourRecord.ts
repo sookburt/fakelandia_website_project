@@ -1,6 +1,5 @@
 
 export const MISDEMEANOURS = [
-	'wanna talk',
 	'rudeness',
 	'vegetables',
 	'lift',

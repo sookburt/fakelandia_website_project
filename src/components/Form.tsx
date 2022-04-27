@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { MisdemeanourRecord, Misdemeanours } from "../data/MisdemeanourRecord";
+import { MisdemeanourRecord, MISDEMEANOURS, Misdemeanours } from "../data/MisdemeanourRecord";
 import getCitizenId from "../helpers/CitizenId";
 import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
@@ -12,24 +12,36 @@ import FormTextInput from "./FormTextInput";
 const Form: React.FC = () => {
 
   const {misdemeanourList, misdemeanourSetter} = useContext<IMisdemeanourContext>(MisdemeanourContext);
-
   const [subject, setSubject] = useState<string>('');
-  const [option, setOption] = useState<Misdemeanours | ''>('');
+  const [option, setOption] = useState<string>('');
   const [details, setDetails] = useState<string>('');
   const [record, setRecord] = useState<MisdemeanourRecord>();
 
-  const buildMisdemeanourRecord = () => {
-    
-    const newRecord = ({
-      citizenId: getCitizenId(),
-			misdemeanour: option === '' ? 'wanna talk' : option,
-			date: new Date().toLocaleDateString(),
-      misdemeanourDescription: getMisdemeanourText(option),
-      misdemeanourSubject: subject,
-      misdemeanourDetail: details
-		});
+  const options = [...MISDEMEANOURS.map((item, index) => (
+    {name: index.toString(), value: item})), 
+    {name: 'talk', value: 'talk'}];
 
-    setRecord(newRecord);
+  const buildMisdemeanourRecord = () => {
+
+    if(option === 'talk') {
+        console.log(`Citizen Id: ${getCitizenId()}`);
+        console.log(`I just want to talk...`);
+        console.log(`Date: ${new Date().toLocaleDateString()}`);
+        console.log(`Misdemeanour Subject: ${subject}`);
+        console.log(`Misdemeanour Details: ${details}`);
+    }
+    else {
+      const newRecord = ({
+        citizenId: getCitizenId(),
+        misdemeanour: option as Misdemeanours,
+        date: new Date().toLocaleDateString(),
+        misdemeanourDescription: getMisdemeanourText(option),
+        misdemeanourSubject: subject,
+        misdemeanourDetail: details
+      });
+  
+      setRecord(newRecord);
+    }
   }
 
   useEffect(() => { 
@@ -47,7 +59,7 @@ const Form: React.FC = () => {
         </div>
         <div className="form--row">
           <label htmlFor='reason-for-contact' className='form--rowlabel'>Reason for contact: </label>
-          <FormSelectInput option={option} update={setOption} />
+          <FormSelectInput option={option} optionList={options} update={setOption} />
         </div>
         <div className="form--row">
           <label htmlFor="details"  className='form--rowlabel'>Details: </label>
