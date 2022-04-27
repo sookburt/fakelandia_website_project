@@ -28,7 +28,7 @@ const FormSelectInput: React.FC<Props> = (props) => {
   return (
     <>
       <select 
-        id='misdemeanourSelect' name='misdemeanourSelect' className='form--select'
+        id='misdemeanourSelect' name='misdemeanourSelect' className='form--input'
         onChange={(e) => update(e.target.value)}
         >
           <option value=''>Select...</option>

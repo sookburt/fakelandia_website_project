@@ -1,5 +1,6 @@
 interface Props {
   text: string;
+  placeholder: string;
   update: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -8,6 +9,7 @@ const FormTextInput: React.FC<Props> = (props) => {
   return (
     <>
       <input id='formTextInput' name='formTextInput' 
+        className='form--input' placeholder={props.placeholder}
         onChange={(e) => props.update(e.target.value)}
       />
     </>

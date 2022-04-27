@@ -1,21 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Roboto:wght@300;500&display=swap');
 :root {
-	--light: #D9DBBC;
-  --dark: #20331F;
+  --bgcolor: #EDF2F0;
+	--light: #EDF2F0;
+  --mid: #a0a5a8;
+  --dark: #181818;
   --link: #607744;
   --highlight: #FCDDBC;
-  --active: #5A352A;
+  --active: #4B70E2;
+
+  --neu-1: #ecf0f3;
+  --bluegrey: #d1d9e6;
+  --white: #f9f9f9;
 }
+
 body {
+  background-color: var(--light);
+}
+
+.App {
+  font-family: 'Roboto', sans-serif;
   font-size: 100%;
+  width: 80%;
   background-color: var(--light);
   color: var(--dark);
   display: flex;
   flex-direction: column;
-  margin: 20px 50px; 
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-kerning: 0.5em;
+  margin: auto; 
+
 }
 
 h1 {
@@ -26,24 +37,28 @@ h1 {
 
 .navbar {
   margin: auto;
-  border: var(--dark) solid 1px;
+  padding: 5px;
+  width: 80%;
   border-radius: 5px;
+  text-align: center;
 }
 
 .navbar--list {
   display:grid;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   grid-template-columns: 33% 33% 33%;
 }
 
 .navbar--list--item {
   list-style: none;
-  background-color: var(--highlight);
+  background-color: var(--light);
   margin: auto;
   padding: 10px 20px;
-  border: solid 1px var(--dark);
-  border-radius: 5px;
+  border-radius: 5px; 
+  box-shadow:
+  10px 10px 10px var(--bluegrey),
+  -10px -10px 10px var(--white);
 }
 
 .active {
@@ -52,28 +67,43 @@ h1 {
 }
 
 a {
-  color: var(--link);
+  color: var(--mid);
 }
 
-.main--content {
-  flex-grow: 5;
+.container {
   text-align: center;
   margin: 20px;
   padding: 20px;
+  border-radius: 5px;
+  box-shadow:
+		10px 10px 10px var(--bluegrey),
+		-10px -10px 10px var(--white);
 }
 
-.main--content p {
+.container-inner {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+.container p {
   text-align: left;
   margin: 20px;
+  color: var(--mid);
 }
 
 .misdemeanour-table {
+  background-color: var(--light);
+  color: var(--mid);
   margin: auto;
   width: 80%;
-  border: 2px solid var(--dark);
   padding: 10px;
-  background-color: var(--highlight);
   border-radius: 5px;
+  box-shadow:
+		10px 10px 10px var(--bluegrey),
+		-10px -10px 10px var(--white);
 }
 
 .misdemeanour-table--caption {
@@ -91,7 +121,7 @@ footer {
 .table-row--image {
   width: 100px;
   height: 60px;
-  border: solid 2px var(--dark);
+  border: solid 1px var(--mid);
   margin: 5px;
 }
 
@@ -99,6 +129,7 @@ footer {
   padding: 15px 2px;
   margin: 15px 2px;
   font-weight: 500;
+  color: var(--mid);
 }
 
 .filter--select {
@@ -113,28 +144,30 @@ footer {
 
 .form {
   display: flex;
-  flex-direction: column;
-  justify-items: space-between;
+  flex-direction:column;
+  align-items: center;
+  padding: 2em;
 }
 
 .form--row {
   display: flex;
-  flex-direction: row;
-  justify-items: flex-end;
+  align-items: center;
+  padding: 2em;
+}
+
+.form--label {
+  color: var(--mid);
+  /* width: 20em; */
   text-align: right;
-  padding: 5px;
-  width: 50%;
-  margin: auto;
+  padding-right: 0.5em;
+  white-space: nowrap;
 }
 
-.form--rowitem {
-  width:50%;
-  align-self: flex-end;
-}
-
-.form--rowlabel {
-  font-weight: 500;
-  padding-right: 8px;
+.form--input {
+  flex: 1 1 auto;
+  width: 20em;
+  text-align: left;
+  padding-left: 0.5em;
 }
 
 .form--button {

@@ -23,7 +23,7 @@ const MainLayout: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="main--content">
+      <main className="container">
         <MisdemeanourContext.Provider value={{misdemeanourList:misdemeanours, misdemeanourSetter:setMisdemeanours}}>
           <Outlet/>
         </MisdemeanourContext.Provider>

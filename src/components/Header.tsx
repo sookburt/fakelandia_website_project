@@ -2,7 +2,7 @@ import Nav from "./Nav";
 
 const Header: React.FC = () => (
   <>
-    <header>
+    <header className="container">
       <Nav/>
     </header>
   </>

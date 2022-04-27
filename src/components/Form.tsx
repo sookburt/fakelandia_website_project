@@ -54,18 +54,19 @@ const Form: React.FC = () => {
     {record && (<FormOutcome {...record} />)}
       <form className="form">
         <div className="form--row">
-          <label htmlFor='formTextInput' className='form--rowlabel'>Subject: </label>
-          <FormTextInput text={subject} update={setSubject} />
+          <label htmlFor='formTextInput' className='form--label'>Subject: </label>
+          <FormTextInput text={subject} update={setSubject} placeholder={'subject'} />
         </div>
         <div className="form--row">
-          <label htmlFor='reason-for-contact' className='form--rowlabel'>Reason for contact: </label>
+          <label htmlFor='reason-for-contact' className='form--label'>Reason for contact: </label>
           <FormSelectInput option={option} optionList={options} update={setOption} />
         </div>
         <div className="form--row">
-          <label htmlFor="details"  className='form--rowlabel'>Details: </label>
+          <label htmlFor="details"  className='form--label'>Details: </label>
           <FormTextArea text={details} update={setDetails} />
         </div>
         <div className="form--row">
+          <label htmlFor="button">Submit: </label>
           <FormButton buttonLabel={'Confess'} saveForm={buildMisdemeanourRecord} />
         </div>
       </form>

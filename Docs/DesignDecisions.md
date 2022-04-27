@@ -38,8 +38,9 @@ That wasn't fun but I assume the requirement was added to deliberately break the
 
 ## Next
 [] Add validation to the form
-[] Disable the submit button until the misdemeanour is selected.
-[] Reset the form after submission 
+[] Disable the submit button until the misdemeanour is selected
+[] Add a test that the button is disabled before and enabled after a misdemeanour is selected.
+[] Reset the form after submission (set the state to be blank I assume...) 
 [] Validate the HTML for accessbility
 [] Revisit the CSS to make it look and work better for mobile and... well anything...
 

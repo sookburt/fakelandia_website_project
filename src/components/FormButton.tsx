@@ -8,7 +8,7 @@ const FormButton: React.FC<Props> = (props) => {
 
   return (
   <>
-    <button className='form--button' 
+    <button className='form--button' id="button"
       onClick={(e) => {e.preventDefault(); props.saveForm()}}
     >{props.buttonLabel}</button>
   </>

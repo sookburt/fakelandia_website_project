@@ -1,7 +1,7 @@
 
 const Footer: React.FC = () => (
   <>
-    <footer>
+    <footer className="container">
       <div>&copy; 2022 Sue Burt</div> 
     </footer>
   </>
