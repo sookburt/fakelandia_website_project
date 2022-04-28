@@ -39,11 +39,10 @@ That wasn't fun but I assume the requirement was added to deliberately break the
 ## CSS
 Added some styling but running out of time so going to leave it for now.  If I have the time to return to it, I will attempt to enhance the styling, tidy the css and add media queries for different screen sizes.
 
-
+## Disabling the button
+On investigating the button disabling requirement, I noticed that it is not good for accessiblity to disable it through the DOM (because it does not allow focus to find out why it is disabled) so I opted to show a message if the select option was still set to the default instead and if a new state called 'showValidation' was true.  It effectively blocks the button action without blocking the button.
 
 ## Next
-[] Add validation to the form
-[] Disable the submit button until the misdemeanour is selected
-[] Add a test that the button is disabled before and enabled after a misdemeanour is selected.
+
 [] Reset the form after submission (set the state to be blank I assume...) 
 [] Validate the HTML for accessbility

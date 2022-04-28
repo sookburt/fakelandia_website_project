@@ -8,6 +8,7 @@ import FormOutcome from "./FormOutcome";
 import FormSelectInput from "./FormSelectInput";
 import FormTextArea from "./FormTextArea";
 import FormTextInput from "./FormTextInput";
+import FormValidationMessage from "./FormValidationMessage";
 
 const Form: React.FC = () => {
 
@@ -16,6 +17,7 @@ const Form: React.FC = () => {
   const [option, setOption] = useState<string>('');
   const [details, setDetails] = useState<string>('');
   const [record, setRecord] = useState<MisdemeanourRecord>();
+  const [showValidation, setShowValidation] = useState<boolean>(false);
 
   const options = [...MISDEMEANOURS.map((item, index) => (
     {name: index.toString(), value: item})), 
@@ -23,24 +25,29 @@ const Form: React.FC = () => {
 
   const buildMisdemeanourRecord = () => {
 
-    if(option === 'talk') {
-        console.log(`Citizen Id: ${getCitizenId()}`);
-        console.log(`I just want to talk...`);
-        console.log(`Date: ${new Date().toLocaleDateString()}`);
-        console.log(`Misdemeanour Subject: ${subject}`);
-        console.log(`Misdemeanour Details: ${details}`);
+    if(option === '') {
+      setShowValidation(true);
     }
     else {
-      const newRecord = ({
-        citizenId: getCitizenId(),
-        misdemeanour: option as Misdemeanours,
-        date: new Date().toLocaleDateString(),
-        misdemeanourDescription: getMisdemeanourText(option),
-        misdemeanourSubject: subject,
-        misdemeanourDetail: details
-      });
-  
-      setRecord(newRecord);
+      if(option === 'talk') {
+          console.log(`Citizen Id: ${getCitizenId()}`);
+          console.log(`I just want to talk...`);
+          console.log(`Date: ${new Date().toLocaleDateString()}`);
+          console.log(`Misdemeanour Subject: ${subject}`);
+          console.log(`Misdemeanour Details: ${details}`);
+      }
+      else {
+        const newRecord = ({
+          citizenId: getCitizenId(),
+          misdemeanour: option as Misdemeanours,
+          date: new Date().toLocaleDateString(),
+          misdemeanourDescription: getMisdemeanourText(option),
+          misdemeanourSubject: subject,
+          misdemeanourDetail: details
+        });
+    
+        setRecord(newRecord);
+      }
     }
   }
 
@@ -64,6 +71,7 @@ const Form: React.FC = () => {
           <FormTextArea text={details} update={setDetails} />
 
           <FormButton buttonLabel={'Confess'} saveForm={buildMisdemeanourRecord} />
+          {option === '' && showValidation && <FormValidationMessage />}
 
       </form>
     </>

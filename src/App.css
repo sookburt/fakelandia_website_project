@@ -2,11 +2,11 @@
 :root {
   --bgcolor: #EDF2F0;
 	--light: #EDF2F0;
-  --mid: #939799;
+  --mid: #526169;
   --dark: #181818;
   --highlight: #FCDDBC;
   --active: #4B70E2;
-  --bluegrey: #c8ced6;
+  --bluegrey: #b8c4d4;
   --white: #f9f9f9;
 }
 
@@ -160,4 +160,9 @@ footer {
 
 .link {
   margin-bottom: 20px;
+}
+
+.validation {
+  color: red;
+  grid-column: 2/3;
 }
