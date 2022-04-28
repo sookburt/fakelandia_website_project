@@ -45,6 +45,3 @@ On investigating the button disabling requirement, I noticed that it is not good
 ## Reset the form on submission
 Crikey, I thought that was going to be easy... nope!  It turned out that I was sending the options list into the FrmSelectSelect option but it was not held in state and therefore not being controlled. Need to remember that.
 
-## Next
-
-[] Validate the HTML for accessbility
