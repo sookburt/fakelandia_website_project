@@ -36,11 +36,14 @@ It is unclear what to do with the extra two field contents and, if I had a clien
 ## Adding the option to just talk
 That wasn't fun but I assume the requirement was added to deliberately break the code to push the learning that bit further.  I'm not completely happy with it as it feels rather hacky.  There's probably a better way but I have limited time.  If I can think of a better way between now and tomorrow morning, I will attempt to refactor it.
 
+## CSS
+Added some styling but running out of time so going to leave it for now.  If I have the time to return to it, I will attempt to enhance the styling, tidy the css and add media queries for different screen sizes.
+
+
+
 ## Next
 [] Add validation to the form
 [] Disable the submit button until the misdemeanour is selected
 [] Add a test that the button is disabled before and enabled after a misdemeanour is selected.
 [] Reset the form after submission (set the state to be blank I assume...) 
 [] Validate the HTML for accessbility
-[] Revisit the CSS to make it look and work better for mobile and... well anything...
-

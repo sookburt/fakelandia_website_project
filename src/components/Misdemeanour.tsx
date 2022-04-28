@@ -26,7 +26,7 @@ const Misdemeanour: React.FC = () => {
   return (
     <>
       <h1>Misdemeanours</h1>
-      <label className="filter--label" htmlFor='misdemeanourSelect'>Select Misdemeanour:</label>
+      <label className="filter--label" htmlFor='misdemeanourSelect'>Filter by Misdemeanour:</label>
       <FormSelectInput option={option} optionList={options} update={setOption} />
       <FilteredMisdemeanourContext.Provider value={filtered}>
         <MisdmeanourTable />

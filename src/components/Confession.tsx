@@ -3,21 +3,22 @@ import Form from "./Form";
 const Confession: React.FC = () => {
 
   return(
-  <>
+  <div className="container-inner">
     <h1>Confession:</h1>
-    <div  className='confession-intro--paragraph'>
+    <p className='confession-intro--paragraph'>
       It's very difficult to catch people committing 
       misdemeanours so we appreciate it when citizens 
       confess to us directly.
-    </div>
+    </p>
 
-    <div className='confession-intro--paragraph'>
+    <p className='confession-intro--paragraph'>
       However, if you're just having a hard day and need to vent then
       you're welcome to contact us here too.  Up to you!
-    </div> 
+    </p> 
 
     <Form />
-  </>
+  </div>
+  
   )
 };
 

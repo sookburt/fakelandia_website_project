@@ -2,14 +2,11 @@
 :root {
   --bgcolor: #EDF2F0;
 	--light: #EDF2F0;
-  --mid: #a0a5a8;
+  --mid: #939799;
   --dark: #181818;
-  --link: #607744;
   --highlight: #FCDDBC;
   --active: #4B70E2;
-
-  --neu-1: #ecf0f3;
-  --bluegrey: #d1d9e6;
+  --bluegrey: #c8ced6;
   --white: #f9f9f9;
 }
 
@@ -22,7 +19,7 @@ body {
   font-size: 100%;
   width: 80%;
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--mid);
   display: flex;
   flex-direction: column;
   margin: auto; 
@@ -73,7 +70,7 @@ a {
 .container {
   text-align: center;
   margin: 20px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   box-shadow:
 		10px 10px 10px var(--bluegrey),
@@ -82,24 +79,16 @@ a {
 
 .container-inner {
   text-align: center;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 5px;
-
-}
-
-.container p {
-  text-align: left;
-  margin: 20px;
-  color: var(--mid);
+  margin: 10px;
+  padding: 10px;
 }
 
 .misdemeanour-table {
-  background-color: var(--light);
-  color: var(--mid);
-  margin: auto;
+  margin: 20px auto;
   width: 80%;
   padding: 10px;
+  background-color: var(--light);
+  color: var(--mid);
   border-radius: 5px;
   box-shadow:
 		10px 10px 10px var(--bluegrey),
@@ -108,21 +97,18 @@ a {
 
 .misdemeanour-table--caption {
   padding: 15px;
-
 }
 
 footer {
   text-align: center;
-  margin: 20px;
-  padding: 20px;
-  color: var(--dark);
 }
 
 .table-row--image {
-  width: 100px;
+  width: 60px;
   height: 60px;
   border: solid 1px var(--mid);
   margin: 5px;
+  border-radius: 50px;
 }
 
 .filter--label {
@@ -138,38 +124,40 @@ footer {
 }
 
 .confession-intro--paragraph {
+  color: var(--mid);
   padding: 10px;
   margin: 10px;
 }
 
 .form {
-  display: flex;
+  display: grid;
+  padding: 1em;
   flex-direction:column;
-  align-items: center;
-  padding: 2em;
-}
-
-.form--row {
-  display: flex;
-  align-items: center;
-  padding: 2em;
+  row-gap: 0.5em;
+  border: 1px solid #c1c1c1;
 }
 
 .form--label {
   color: var(--mid);
-  /* width: 20em; */
   text-align: right;
   padding-right: 0.5em;
   white-space: nowrap;
+  cursor: pointer;
+  grid-column: 1/2;
 }
 
 .form--input {
-  flex: 1 1 auto;
-  width: 20em;
+  min-width: 20em;
   text-align: left;
   padding-left: 0.5em;
+  grid-column: 2/3;
 }
 
 .form--button {
   padding: 3px 5px;
+  grid-column: 2/3;
+}
+
+.link {
+  margin-bottom: 20px;
 }

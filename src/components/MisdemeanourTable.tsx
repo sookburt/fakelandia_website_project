@@ -10,7 +10,9 @@ const MisdmeanourTable: React.FC = () => {
   return (
 
     <table className="misdemeanour-table">
-    <caption className='misdemeanour-table--caption'>Misdemeanours of our citizens with punishment ideas.</caption>
+    <caption className='misdemeanour-table--caption'>
+      Misdemeanours of our citizens together with punishment ideas.
+    </caption>
     <thead>
       <tr>
         <th>Citizen Id</th>
@@ -21,7 +23,7 @@ const MisdmeanourTable: React.FC = () => {
     </thead>
     <tbody>
       {
-        filtered.map((record) => <MisdemeanourRow  {...record}/>) // filtered.map is not a function
+        filtered.map((record) => <MisdemeanourRow  {...record}/>) 
       }
     </tbody>
   </table>
