@@ -1,11 +1,12 @@
-import { MISDEMEANOURS } from "../data/MisdemeanourRecord";
+import { Misdemeanours, MISDEMEANOURS } from "../data/MisdemeanourRecord";
 import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import { NameValueStringPair } from "../interfaces/SelectOptionChoices";
+import FormSelectOption from "./FormSelectOption";
 
 interface Props {
-  option:string;
+  selectedOption:Misdemeanours | '' | 'talk';
   optionList: NameValueStringPair[];
-  update: React.Dispatch<React.SetStateAction<string>>;
+  update: React.Dispatch<React.SetStateAction<Misdemeanours | '' | 'talk'>>;
 }
 
 const FormSelectInput: React.FC<Props> = (props) => {
@@ -31,8 +32,17 @@ const FormSelectInput: React.FC<Props> = (props) => {
         id='misdemeanourSelect' name='misdemeanourSelect' className='form--input'
         onChange={(e) => update(e.target.value)}
         >
-          <option value=''>Select...</option>
-          {props.optionList.map((item) => <option value={item.name}>{getMisdemeanourText(item.value)}</option>)}
+          <FormSelectOption value='' display='Select...' 
+            misdemeanourOption= '' selectedOption={props.selectedOption}/>
+          {props.optionList.map((item) => {
+            return (
+              <FormSelectOption value={item.name} 
+                display={getMisdemeanourText(item.value)} 
+                misdemeanourOption={item.value}
+                selectedOption={props.selectedOption} />
+              )
+            })
+          }
       </select>
       </>
   );

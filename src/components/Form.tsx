@@ -3,6 +3,7 @@ import { MisdemeanourRecord, MISDEMEANOURS, Misdemeanours } from "../data/Misdem
 import getCitizenId from "../helpers/CitizenId";
 import getMisdemeanourText from "../helpers/MisdemeanourDescription";
 import MisdemeanourContext, { IMisdemeanourContext } from "../hooks/MisdemeanourContext";
+import { NameValueStringPair } from "../interfaces/SelectOptionChoices";
 import FormButton from "./FormButton";
 import FormOutcome from "./FormOutcome";
 import FormSelectInput from "./FormSelectInput";
@@ -14,15 +15,22 @@ const Form: React.FC = () => {
 
   const {misdemeanourList, misdemeanourSetter} = useContext<IMisdemeanourContext>(MisdemeanourContext);
   const [subject, setSubject] = useState<string>('');
-  const [option, setOption] = useState<string>('');
+  const [option, setOption] = useState<Misdemeanours | '' | 'talk'>('');
+  const [options, setOptions] = useState<NameValueStringPair[]>([]);
   const [details, setDetails] = useState<string>('');
   const [record, setRecord] = useState<MisdemeanourRecord>();
   const [showValidation, setShowValidation] = useState<boolean>(false);
 
-  const options = [...MISDEMEANOURS.map((item, index) => (
-    {name: index.toString(), value: item})), 
-    {name: 'talk', value: 'talk'}];
+  useEffect(() => {
+    const list = [...MISDEMEANOURS.map((item, index) => (
+        {name: index.toString(), value: item})), 
+        {name: 'talk', value: 'talk'}] as NameValueStringPair[];
 
+    setOptions(list);
+
+  }, []);
+
+  
   const buildMisdemeanourRecord = () => {
 
     if(option === '') {
@@ -52,7 +60,11 @@ const Form: React.FC = () => {
   }
 
   useEffect(() => { 
-    misdemeanourList && record && misdemeanourSetter([...misdemeanourList, record]) 
+    misdemeanourList && record && misdemeanourSetter([...misdemeanourList, record]);
+    setSubject('');
+    setOption('');
+    setDetails('');
+    setShowValidation(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [record]);
 
@@ -64,8 +76,8 @@ const Form: React.FC = () => {
           <label htmlFor='formTextInput' className='form--label'>Subject: </label>
           <FormTextInput text={subject} update={setSubject} placeholder={'subject'} />
 
-          <label htmlFor='reason-for-contact' className='form--label'>Reason for contact: </label>
-          <FormSelectInput option={option} optionList={options} update={setOption} />
+          <label htmlFor='misdemeanourSelect' className='form--label'>Reason for contact: </label>
+          <FormSelectInput selectedOption={option} optionList={options} update={setOption} />
 
           <label htmlFor="details"  className='form--label'>Details: </label>
           <FormTextArea text={details} update={setDetails} />

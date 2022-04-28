@@ -1,4 +1,6 @@
+import { Misdemeanours } from "../data/MisdemeanourRecord";
+
 export interface NameValueStringPair {
   name: string;
-  value: string;
+  value: Misdemeanours | '' | 'talk';
 }

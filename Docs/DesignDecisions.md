@@ -25,7 +25,7 @@ Well... what can I say, the assignment for this project is due well before the o
 Since the form is required to save the new confession to the list in state, I need to move the list up to the level where they it can be passed to both the confessions and misdemeanours pages.  App seems too high but MainLayout is the lowest level I can achieve it even though it seems an odd place to put the code.
 
 ## Error Boundary
-Decided to install https://github.com/bvaughn/react-error-boundary to handle errors as nothing doing that at the moment.
+Decided to install https://github.com/bvaughn/react-error-boundary to handle errors as nothing doing that at the moment.  Not really doing much with this... also to investigate when more time.
 
 ## Helper methods
 I have noticed that there are some methods that need to be reused to create new misdemeanour records in the form so have extracted those out into their own modules for reuse.
@@ -37,12 +37,14 @@ It is unclear what to do with the extra two field contents and, if I had a clien
 That wasn't fun but I assume the requirement was added to deliberately break the code to push the learning that bit further.  I'm not completely happy with it as it feels rather hacky.  There's probably a better way but I have limited time.  If I can think of a better way between now and tomorrow morning, I will attempt to refactor it.
 
 ## CSS
-Added some styling but running out of time so going to leave it for now.  If I have the time to return to it, I will attempt to enhance the styling, tidy the css and add media queries for different screen sizes.
+Added some styling but running out of time so going to leave it for now.  If I have the time to return to it, I will attempt to enhance the styling, tidy the css and add media queries for different screen sizes.  I'm not happy with the way with form is laid out, particularly as the displayed record on submission is offset slightly from the layout of the form below it.
 
 ## Disabling the button
 On investigating the button disabling requirement, I noticed that it is not good for accessiblity to disable it through the DOM (because it does not allow focus to find out why it is disabled) so I opted to show a message if the select option was still set to the default instead and if a new state called 'showValidation' was true.  It effectively blocks the button action without blocking the button.
 
+## Reset the form on submission
+Crikey, I thought that was going to be easy... nope!  It turned out that I was sending the options list into the FrmSelectSelect option but it was not held in state and therefore not being controlled. Need to remember that.
+
 ## Next
 
-[] Reset the form after submission (set the state to be blank I assume...) 
 [] Validate the HTML for accessbility
