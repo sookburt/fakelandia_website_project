@@ -1,6 +1,6 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
 import Router from './components/Router';
 import ErrorFallback from './ErrorHandling/ErrorFallback';
@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <ErrorBoundary 
         FallbackComponent={ErrorFallback}> 
-        <BrowserRouter>
+        <HashRouter>
           <Router/>
-        </BrowserRouter>
+        </HashRouter>
       </ErrorBoundary>
     </div>
   );
